@@ -176,6 +176,35 @@ body {
   padding: 10px 20px 40px; /* Add space around the form */
 }
 
+/* Footer styles */
+.site-footer {
+  background-color: #f4f6f8; /* Light background for separation */
+  padding: 20px; /* Space inside the footer */
+  text-align: center; /* Center the footer text */
+  font-size: 14px; /* Smaller, readable text */
+  color: #333; /* Dark gray text */
+}
+
+/* Keep the footer items centered on one line */
+.footer-content {
+  display: flex; /* Place items side by side */
+  justify-content: center; /* Center the row */
+  gap: 12px; /* Space between items */
+  flex-wrap: wrap; /* Allow wrap on small screens */
+}
+
+/* Footer link style */
+.footer-link {
+  color: #0071c5; /* Intel blue for the link */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; /* Make the link stand out */
+}
+
+/* Link hover effect */
+.footer-link:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+
 /* Align the input and button side by side */
 .newsletter-form {
   display: flex; /* Place items in a row */
