@@ -34,89 +34,141 @@ body {
   font-family: Arial, sans-serif; /* Simple font for readability */
 }
 
-/* Timeline section uses Bootstrap row/cols for a 3-2-1 layout */
-.timeline {
-  padding: 40px 20px; /* Add space around the cards */
+/* Image scroller section */
+.image-scroller {
+  padding: 30px 20px; /* Space around the scroller */
 }
 
-/* Each timeline card */
-.card {
-  height: 400px; /* Fixed height for all cards */
-  position: relative; /* Needed for positioning the overlay */
-  overflow: hidden; /* Hide content that overflows */
+/* Horizontal scrolling track */
+.scroller-track {
+  display: flex; /* Put cards in a row */
+  gap: 20px; /* Space between cards */
+  overflow-x: auto; /* Enable horizontal scroll */
+  padding-bottom: 10px; /* Space for the scrollbar */
+}
+
+/* Image cards inside the scroller */
+.image-card {
+  flex: 0 0 calc(25% - 15px); /* Show four at a time */
+  background-color: #f0f0f0; /* Light background */
   border-radius: 8px; /* Rounded corners */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  background-color: #f0f0f0; /* Light gray background for cards without images */
+  overflow: hidden; /* Keep rounded corners clean */
+  position: relative; /* Anchor the hover overlay */
 }
 
-/* Card images fill the entire card */
-.card img {
-  width: 100%; /* Image takes full width */
-  height: 100%; /* Image takes full height */
-  object-fit: cover; /* Cover the card area without distortion */
-  display: block; /* Remove extra space below image */
-  transition: transform 0.5s ease; /* Smooth zoom transition over 0.5 seconds */
-  transform: scale(1); /* Start at normal size */
+/* Scroller images */
+.image-card img {
+  width: 100%; /* Full width */
+  height: 220px; /* Consistent height */
+  object-fit: cover; /* Crop nicely */
+  display: block; /* Remove extra space below */
+  transition: transform 0.4s ease; /* Smooth zoom */
 }
 
-/* Scale the image up on hover */
-.card:hover img {
-  transform: scale(1.1); /* Increase size by 10% */
-}
-
-/* Overlay with text - hidden by default */
-.card-overlay {
-  position: absolute; /* Position over the card */
-  top: 0; /* Start from the top */
-  left: 0; /* Start from the left */
+/* Hover overlay for scroller images */
+.image-overlay {
+  position: absolute; /* Layer over the image */
+  top: 0; /* Start at top */
+  left: 0; /* Start at left */
   width: 100%; /* Full width */
   height: 100%; /* Full height */
-  background-color: rgba(0, 0, 0, 0.85); /* Black with 85% opacity */
+  background-color: rgba(0, 0, 0, 0.75); /* Dark overlay */
   color: white; /* White text */
-  padding: 20px; /* Space inside the overlay */
-  box-sizing: border-box; /* Include padding in width/height */
-  text-align: center; /* Center all text */
+  padding: 16px; /* Inner spacing */
+  box-sizing: border-box; /* Include padding in size */
+  display: flex; /* Center content */
+  flex-direction: column; /* Stack text */
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  text-align: center; /* Center text */
   opacity: 0; /* Hidden by default */
-  transition: opacity 0.3s ease; /* Smooth fade in/out */
-  display: flex; /* Use flexbox for centering content */
-  flex-direction: column; /* Stack content vertically */
-  justify-content: center; /* Center content vertically */
-  align-items: center; /* Center content horizontally */
+  transition: opacity 0.3s ease; /* Fade in */
 }
 
-/* Show overlay on hover */
-.card:hover .card-overlay {
+/* Show overlay and zoom on hover */
+.image-card:hover .image-overlay {
   opacity: 1; /* Make overlay visible */
 }
 
-/* Style the year heading in overlay */
-.card-overlay h2 {
-  font-size: 28px; /* Large year text */
-  margin: 0 0 8px 0; /* Space below */
-  color: #0071c5; /* Intel blue color */
+.image-card:hover img {
+  transform: scale(1.05); /* Slight zoom */
 }
 
-/* Style the title in overlay */
-.card-overlay h3 {
-  font-size: 20px; /* Medium title text */
-  margin: 0 0 12px 0; /* Space below */
+/* Overlay heading and text */
+.image-overlay h4 {
+  margin: 0 0 8px; /* Space below title */
+  font-size: 18px; /* Clear title size */
 }
 
-/* Style the description in overlay */
-.card-overlay p {
-  font-size: 14px; /* Readable text size */
-  line-height: 1.4; /* Space between lines */
+.image-overlay p {
   margin: 0; /* Remove default margin */
-  overflow-y: auto; /* Allow scrolling if content is too long */
-  max-height: 200px; /* Limit height to keep text visible */
+  font-size: 13px; /* Smaller text size */
+  line-height: 1.4; /* Comfortable spacing */
 }
 
-/* Style the instruction text under the timeline */
-.timeline-note {
-  text-align: center; /* Center the text */
-  padding: 20px; /* Add space around */
-  color: #666; /* Gray text color */
-  font-style: italic; /* Make it italic */
+/* Medium screens: show two images at a time */
+@media (max-width: 991px) {
+  .image-card {
+    flex: 0 0 calc(50% - 10px); /* Show two at a time */
+  }
+}
+
+/* Small screens: stack images vertically */
+@media (max-width: 600px) {
+  .scroller-track {
+    flex-direction: column; /* Stack images */
+    overflow-x: visible; /* Remove horizontal scroll */
+  }
+
+  .image-card {
+    flex: 0 0 auto; /* Let cards take full width */
+  }
+}
+
+/* Title chart section */
+.title-chart {
+  padding: 20px 20px 40px; /* Space around the title grid */
+}
+
+/* Individual title cards */
+.title-card {
+  background-color: #ffffff; /* White background */
+  border: 1px solid #e5e5e5; /* Light border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 16px; /* Space inside */
+  text-align: center; /* Center the content */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); /* Soft shadow */
+}
+
+/* Title text in the chart */
+.title-card h4 {
+  margin: 0 0 10px; /* Space below title */
+  font-size: 18px; /* Clear title size */
+}
+
+/* Short description under each title */
+.title-desc {
+  margin: 0 0 12px; /* Space below the description */
+  font-size: 14px; /* Smaller text size */
+  line-height: 1.4; /* Comfortable spacing */
+  color: #555; /* Soft gray for readability */
+}
+
+/* Learn more button */
+.learn-more-btn {
+  padding: 10px 14px; /* Button size */
+  border: none; /* Remove default border */
+  border-radius: 6px; /* Rounded corners */
+  background-color: #0071c5; /* Intel blue */
+  color: white; /* White text */
+  font-size: 14px; /* Readable size */
+  cursor: pointer; /* Pointer cursor */
+}
+
+/* Button hover effect */
+.learn-more-btn:hover {
+  background-color: #005fa3; /* Darker blue on hover */
 }
 
 /* Newsletter section */
