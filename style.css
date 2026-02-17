@@ -1,0 +1,163 @@
+/* Add your CSS here */
+
+/* Header styles with blue background */
+header {
+  background-color: #0071c5; /* Intel blue color */
+  color: white; /* White text on blue background */
+  padding: 40px 20px; /* Add space inside the header */
+  text-align: center; /* Center all content */
+}
+
+/* Style the Intel logo */
+header img {
+  width: 150px; /* Resize the logo to 150px wide */
+  margin-bottom: 20px; /* Add space below the logo */
+}
+
+/* Style the main heading */
+header h1 {
+  font-size: 36px; /* Large heading size */
+  margin: 20px 0; /* Add space above and below */
+}
+
+/* Style the description paragraph */
+header p {
+  font-size: 18px; /* Readable text size */
+  max-width: 800px; /* Limit width for better readability */
+  margin: 0 auto; /* Center the paragraph */
+  line-height: 1.6; /* Add space between lines */
+}
+
+/* Reset body margin and add basic styles */
+body {
+  margin: 0; /* Remove default margin */
+  font-family: Arial, sans-serif; /* Simple font for readability */
+}
+
+/* Timeline section with flexbox and horizontal scroll */
+.timeline {
+  display: flex; /* Use flexbox to arrange cards in a row */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  padding: 40px 20px; /* Add space around the cards */
+  gap: 20px; /* Space between cards */
+}
+
+/* Each timeline card */
+.card {
+  min-width: 300px; /* Each card is 300px wide */
+  height: 400px; /* Fixed height for all cards */
+  position: relative; /* Needed for positioning the overlay */
+  overflow: hidden; /* Hide content that overflows */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  background-color: #f0f0f0; /* Light gray background for cards without images */
+}
+
+/* Card images fill the entire card */
+.card img {
+  width: 100%; /* Image takes full width */
+  height: 100%; /* Image takes full height */
+  object-fit: cover; /* Cover the card area without distortion */
+  display: block; /* Remove extra space below image */
+  transition: transform 0.5s ease; /* Smooth zoom transition over 0.5 seconds */
+  transform: scale(1); /* Start at normal size */
+}
+
+/* Scale the image up on hover */
+.card:hover img {
+  transform: scale(1.1); /* Increase size by 10% */
+}
+
+/* Overlay with text - hidden by default */
+.card-overlay {
+  position: absolute; /* Position over the card */
+  top: 0; /* Start from the top */
+  left: 0; /* Start from the left */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgba(0, 0, 0, 0.85); /* Black with 85% opacity */
+  color: white; /* White text */
+  padding: 20px; /* Space inside the overlay */
+  box-sizing: border-box; /* Include padding in width/height */
+  text-align: center; /* Center all text */
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s ease; /* Smooth fade in/out */
+  display: flex; /* Use flexbox for centering content */
+  flex-direction: column; /* Stack content vertically */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+}
+
+/* Show overlay on hover */
+.card:hover .card-overlay {
+  opacity: 1; /* Make overlay visible */
+}
+
+/* Style the year heading in overlay */
+.card-overlay h2 {
+  font-size: 28px; /* Large year text */
+  margin: 0 0 8px 0; /* Space below */
+  color: #0071c5; /* Intel blue color */
+}
+
+/* Style the title in overlay */
+.card-overlay h3 {
+  font-size: 20px; /* Medium title text */
+  margin: 0 0 12px 0; /* Space below */
+}
+
+/* Style the description in overlay */
+.card-overlay p {
+  font-size: 14px; /* Readable text size */
+  line-height: 1.4; /* Space between lines */
+  margin: 0; /* Remove default margin */
+  overflow-y: auto; /* Allow scrolling if content is too long */
+  max-height: 200px; /* Limit height to keep text visible */
+}
+
+/* Style the instruction text at the bottom */
+body > p {
+  text-align: center; /* Center the text */
+  padding: 20px; /* Add space around */
+  color: #666; /* Gray text color */
+  font-style: italic; /* Make it italic */
+}
+
+/* Mobile view for screens 600px and smaller */
+@media (max-width: 600px) {
+  /* Stack cards vertically on mobile */
+  .timeline {
+    flex-direction: column; /* Stack cards vertically */
+    overflow-x: visible; /* Remove horizontal scroll */
+    align-items: center; /* Center cards on the screen */
+    padding: 20px 10px; /* Adjust padding for mobile */
+  }
+
+  /* Make cards full width on mobile */
+  .card {
+    min-width: 90%; /* Cards take up 90% of screen width */
+    max-width: 400px; /* Set a max width for larger mobile devices */
+  }
+
+  /* Adjust header for mobile */
+  header h1 {
+    font-size: 28px; /* Smaller heading on mobile */
+  }
+
+  header p {
+    font-size: 16px; /* Smaller description on mobile */
+  }
+
+  /* Adjust overlay text sizes for mobile */
+  .card-overlay h2 {
+    font-size: 24px; /* Smaller year text */
+  }
+
+  .card-overlay h3 {
+    font-size: 18px; /* Smaller title text */
+  }
+
+  .card-overlay p {
+    font-size: 13px; /* Smaller description text */
+  }
+}
