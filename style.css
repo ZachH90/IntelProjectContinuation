@@ -34,17 +34,13 @@ body {
   font-family: Arial, sans-serif; /* Simple font for readability */
 }
 
-/* Timeline section with flexbox and horizontal scroll */
+/* Timeline section uses Bootstrap row/cols for a 3-2-1 layout */
 .timeline {
-  display: flex; /* Use flexbox to arrange cards in a row */
-  overflow-x: auto; /* Enable horizontal scrolling */
   padding: 40px 20px; /* Add space around the cards */
-  gap: 20px; /* Space between cards */
 }
 
 /* Each timeline card */
 .card {
-  min-width: 300px; /* Each card is 300px wide */
   height: 400px; /* Fixed height for all cards */
   position: relative; /* Needed for positioning the overlay */
   overflow: hidden; /* Hide content that overflows */
@@ -123,20 +119,67 @@ body > p {
   font-style: italic; /* Make it italic */
 }
 
+/* Newsletter section */
+.newsletter {
+  padding: 10px 20px 40px; /* Add space around the form */
+}
+
+/* Align the input and button side by side */
+.newsletter-form {
+  display: flex; /* Place items in a row */
+  gap: 10px; /* Add space between input and button */
+  justify-content: center; /* Center the form */
+  flex-wrap: wrap; /* Stack on small screens */
+}
+
+/* Style the email input */
+.newsletter-form input {
+  padding: 12px; /* Comfortable typing space */
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 6px; /* Rounded corners */
+  min-width: 260px; /* Reasonable width */
+  font-size: 16px; /* Readable text size */
+}
+
+/* Style the signup button */
+.newsletter-form button {
+  padding: 12px 16px; /* Comfortable button size */
+  border: none; /* Remove default border */
+  border-radius: 6px; /* Rounded corners */
+  background-color: #0071c5; /* Intel blue */
+  color: white; /* White text */
+  font-size: 16px; /* Readable text size */
+  cursor: pointer; /* Show pointer on hover */
+}
+
+/* Button hover effect */
+.newsletter-form button:hover {
+  background-color: #005fa3; /* Darker blue on hover */
+}
+
+/* Hide labels visually but keep them for screen readers */
+.visually-hidden {
+  position: absolute; /* Remove from normal flow */
+  width: 1px; /* Tiny size */
+  height: 1px; /* Tiny size */
+  padding: 0; /* No padding */
+  margin: -1px; /* Remove from view */
+  overflow: hidden; /* Hide any overflow */
+  clip: rect(0, 0, 0, 0); /* Clip to nothing */
+  white-space: nowrap; /* Prevent line breaks */
+  border: 0; /* No border */
+}
+
+/* Optional RTL adjustments when the page switches direction */
+[dir="rtl"] body {
+  text-align: right; /* Make text align with RTL reading direction */
+}
+
 /* Mobile view for screens 600px and smaller */
 @media (max-width: 600px) {
-  /* Stack cards vertically on mobile */
+  /* Reduce spacing for smaller screens */
   .timeline {
-    flex-direction: column; /* Stack cards vertically */
-    overflow-x: visible; /* Remove horizontal scroll */
-    align-items: center; /* Center cards on the screen */
     padding: 20px 10px; /* Adjust padding for mobile */
-  }
-
-  /* Make cards full width on mobile */
-  .card {
-    min-width: 90%; /* Cards take up 90% of screen width */
-    max-width: 400px; /* Set a max width for larger mobile devices */
   }
 
   /* Adjust header for mobile */

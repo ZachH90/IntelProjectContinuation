@@ -4,6 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Intel: Sustainability Through the Ages</title>
+  <!-- Bootstrap CSS for responsive layout utilities -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+  />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -28,10 +33,12 @@
   </header>
 
   <!-- Timeline Cards Section -->
-  <section class="timeline">
+  <section class="timeline container">
+    <!-- Bootstrap row centers the grid inside the container -->
+    <div class="row g-4 justify-content-center">
 
     <!-- Card 1: 1968 -->
-    <div class="card">
+      <div class="card col-12 col-md-6 col-lg-4">
       <img src="img/1.jpg" alt="Intel Founded 1968" />
       <div class="card-overlay">
         <h2>1968</h2>
@@ -45,7 +52,7 @@
     </div>
 
     <!-- Card 2: 1971 -->
-    <div class="card">
+      <div class="card col-12 col-md-6 col-lg-4">
       <img src="img/2.jpg" alt="First Microprocessor 1971" />
       <div class="card-overlay">
         <h2>1971</h2>
@@ -59,7 +66,7 @@
     </div>
 
     <!-- Card 3: 1978 -->
-    <div class="card">
+      <div class="card col-12 col-md-6 col-lg-4">
       <img src="img/3.jpg" alt="8086 Processor 1978" />
       <div class="card-overlay">
         <h2>1978</h2>
@@ -72,7 +79,7 @@
     </div>
 
     <!-- Card 4: 1985 -->
-    <div class="card">
+      <div class="card col-12 col-md-6 col-lg-4">
       <img src="img/4.jpg" alt="386 Processor 1985" />
       <div class="card-overlay">
         <h2>1985</h2>
@@ -86,10 +93,10 @@
     </div>
 
     <!-- Card 5: 2006 -->
-    <div class="card">
+      <div class="card col-12 col-md-6 col-lg-4">
       <img src="img/Our Progress Toward .png" alt="Peak GHG Emissions 2006" />
       <div class="card-overlay">
-        <h2>2006</h2
+        <h2>2006</h2>
         <h3>Peak GHG Emissions</h3>
         <p>
           This year marks Intel's highest annual greenhouse gas emissions 
@@ -101,7 +108,7 @@
     </div>
 
     <!-- Card 6: 2020 -->
-    <div class="card">
+      <div class="card col-12 col-md-6 col-lg-4">
       <img src="img/Rise.png" alt="RISE Strategy 2020" />
       <div class="card-overlay">
         <h2>2020</h2>
@@ -115,7 +122,7 @@
     </div>
 
     <!-- Card 7: 2022 -->
-    <div class="card">
+      <div class="card col-12 col-md-6 col-lg-4">
       <img src="img/Intel-climate-change-timeline.jpg" alt="Net-Zero By 2040" />
       <div class="card-overlay">
         <h2>2022</h2>
@@ -129,7 +136,7 @@
     </div>
 
     <!-- Card 8: 2023 -->
-    <div class="card">
+      <div class="card col-12 col-md-6 col-lg-4">
       <img src="img/Intel-Renewables-Solar.jpg" alt="Renewable Electricity 2023" />
       <div class="card-overlay">
         <h2>2023</h2>
@@ -143,7 +150,7 @@
     </div>
 
     <!-- Card 9: 2024 -->
-    <div class="card">
+      <div class="card col-12 col-md-6 col-lg-4">
       <img src="img/Siemens at the Intel.png" alt="Sustainability Summit 2024" />
       <div class="card-overlay">
         <h2>2024</h2>
@@ -155,7 +162,45 @@
         </p>
       </div>
     </div>
+    </div>
   </section>
-  <p>Scroll to view timeline | Hover over cards to learn more!</p>
+  <p>Hover over cards to learn more!</p>
+
+  <!-- Newsletter signup section -->
+  <section class="newsletter container">
+    <form class="newsletter-form" action="#" method="post">
+      <!-- The label is hidden, and the placeholder appears inside the field -->
+      <label class="visually-hidden" for="newsletter-email">
+        Email address
+      </label>
+      <input
+        type="email"
+        id="newsletter-email"
+        name="newsletter-email"
+        placeholder="Email address"
+        required
+      />
+      <button type="submit">Sign up for the Intel Sustainability Newsletter</button>
+    </form>
+  </section>
+
+  <script>
+    // Detect if the user's language is a right-to-left (RTL) language.
+    // If it is and it differs from the page's original language, switch to RTL.
+    (function setPageDirection() {
+      var rtlLanguages = ["ar", "fa", "he", "ur", "ps", "dv", "ku", "yi"];
+      var htmlEl = document.documentElement;
+      var originalLang = (htmlEl.getAttribute("lang") || "").toLowerCase();
+      var userLang = (navigator.language || "").toLowerCase();
+
+      // Use the base language code ("en" from "en-US").
+      var userBase = userLang.split("-")[0];
+      var originalBase = originalLang.split("-")[0];
+
+      if (rtlLanguages.indexOf(userBase) !== -1 && userBase !== originalBase) {
+        htmlEl.setAttribute("dir", "rtl");
+      }
+    })();
+  </script>
 </body>
 </html>
