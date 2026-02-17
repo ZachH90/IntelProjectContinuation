@@ -111,8 +111,8 @@ body {
   max-height: 200px; /* Limit height to keep text visible */
 }
 
-/* Style the instruction text at the bottom */
-body > p {
+/* Style the instruction text under the timeline */
+.timeline-note {
   text-align: center; /* Center the text */
   padding: 20px; /* Add space around */
   color: #666; /* Gray text color */
